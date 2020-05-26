@@ -276,9 +276,9 @@ class SimpleClassificationPipeline(ClassifierMixin, BasePipeline):
 
     def _get_pipeline_steps(self):
         steps = []
-	print(" going execute pipeline autosklearn")
+        print(" going execute pipeline autosklearn")
         default_dataset_properties = {'target_type': 'classification'}
-	'''
+        '''
         steps.extend([
             ["data_preprocessing",
                 DataPreprocessor(dataset_properties=default_dataset_properties)],
