@@ -278,20 +278,20 @@ class SimpleClassificationPipeline(ClassifierMixin, BasePipeline):
         steps = []
         print(" going execute pipeline autosklearn")
         default_dataset_properties = {'target_type': 'classification'}
-        '''
+
         steps.extend([
+            ["feature_preprocessor",
+             feature_preprocessing_components.FeaturePreprocessorChoice(
+                 default_dataset_properties)],
             ["data_preprocessing",
                 DataPreprocessor(dataset_properties=default_dataset_properties)],
             ["balancing",
                 Balancing()],
-            ["feature_preprocessor",
-                feature_preprocessing_components.FeaturePreprocessorChoice(
-                    default_dataset_properties)],
             ['classifier',
                 classification_components.ClassifierChoice(
                     default_dataset_properties)]
         ])
-        '''
+
         return steps
 
     def _get_estimator_hyperparameter_name(self):
